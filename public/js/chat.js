@@ -39,8 +39,9 @@ socket.on('updateUserList', function (users) {
     var ol = jQuery('<ol></ol>');
 
     users.forEach(function (user) {
-        ol.append(jQuery('<il></il>')).text(user);
+        ol.append(jQuery('<li></li>').text(user));
     });
+
     jQuery('#users').html(ol);
 });
 
@@ -55,11 +56,6 @@ socket.on('newMessage', function (message) {
     });
     jQuery('#messages').append(html);
     scrollToBottom();
-    // var li = jQuery('<li></li>');
-
-    // li.text(`${message.from} ${formattedTime}: ${message.text}`);
-
-    // jQuery('#messages').append(li);
 });
 
 socket.on('newLocationMessage', function (message) {
